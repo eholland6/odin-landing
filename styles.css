@@ -57,6 +57,34 @@ a:hover {
     align-items: center;
 }
 
+.written-info {
+    padding: 30px;
+}
+
+#image-holder {
+    display: flex;
+    justify-content: center;
+    gap: 60px;
+    padding: 20px;
+}
+
+.image-info {
+    max-width: 200px;
+}
+
+#img-info-placeholder {
+    border-radius: 20px;
+    border: 2px solid #3882F6;
+    width: 75px;
+    height: 75px;
+    margin: 10px;
+}
+
+.img-subtext {
+    font-size: 10px;
+    text-align: center;
+}
+
 .quote-box {
     display: flex;
     flex-direction: column;
