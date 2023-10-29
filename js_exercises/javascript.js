@@ -12,7 +12,7 @@ function capitalize(string) {
     first_char = first_char.toUpperCase()
     rest_of_word = string.slice(1, length)
     rest_of_word = rest_of_word.toLowerCase()
-    output_str = `{first_char}+{rest_of_word}`
+    output_str = `${first_char}${rest_of_word}`
     return output_str;
 }
 
