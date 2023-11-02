@@ -37,7 +37,6 @@ function playRound(playerChoice) {
         }
     }
 
-    console.log(result)
     return result;
 }
 
