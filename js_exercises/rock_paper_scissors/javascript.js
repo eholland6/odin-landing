@@ -5,21 +5,6 @@ function game(num_rounds) {
     }
 }
 
-function getComputerChoice() {
-    let rand = Math.random();
-    if (rand < 0.33) {
-        computerChoice = 'Rock';
-    }
-    else if (rand < 0.66) {
-        computerChoice = 'Paper';
-    }
-    else {
-        computerChoice = 'Scissors';
-    }
-
-    return computerChoice;
-}
-
 function playRound(playerChoice) {
     playerChoice = firstLetterCaps(playerChoice);
     computerChoice = getComputerChoice();
@@ -54,6 +39,21 @@ function playRound(playerChoice) {
 
     console.log(result)
     return result;
+}
+
+function getComputerChoice() {
+    let rand = Math.random();
+    if (rand < 0.33) {
+        computerChoice = 'Rock';
+    }
+    else if (rand < 0.66) {
+        computerChoice = 'Paper';
+    }
+    else {
+        computerChoice = 'Scissors';
+    }
+
+    return computerChoice;
 }
 
 function firstLetterCaps(textStr) {
