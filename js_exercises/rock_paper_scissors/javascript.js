@@ -1,3 +1,10 @@
+function game(num_rounds) {
+    for (let i = 0; i < num_rounds; i++) {
+        let playerChoice = prompt('Please select Rock, Scissors, or Paper:')
+        playRound(playerChoice)
+    }
+}
+
 function getComputerChoice() {
     let rand = Math.random();
     if (rand < 0.33) {
@@ -18,34 +25,35 @@ function playRound(playerChoice) {
     computerChoice = getComputerChoice();
 
     if (playerChoice == computerChoice) {
-        result = `Tie! You both chose ${playerChoice}. So unsatisfying!`
+        result = `Tie! You both chose ${playerChoice}. So unsatisfying!`;
     }
     else if (playerChoice == 'Rock') {
         if (computerChoice == 'Paper') {
-            result = 'You lose! Paper covers Rock!'
+            result = 'You lose! Paper covers Rock!';
         }
         else {
-            result = `You win! Rock smashes Scissors!`
+            result = `You win! Rock smashes Scissors!`;
         }
     }
     else if (playerChoice == 'Paper') {
         if (computerChoice == 'Scissors') {
-            result = 'You Lose! Scissors cuts that paper all up!'
+            result = 'You Lose! Scissors cuts that paper all up!';
         }
         else {
-            result = 'You Win! Paper covers that Rock right up!'
+            result = 'You Win! Paper covers that Rock right up!';
         }
     }
     else if (playerChoice == 'Scissors') {
         if (computerChoice == 'Rock') {
-            result = 'You Lose! Rock smases your scissors big time!'
+            result = 'You Lose! Rock smashes your scissors big time!';
         }
         else {
-            result = "You win! Your scissors cut up the computer's paper"
+            result = "You win! Your scissors cut up the computer's paper";
         }
     }
 
-    return result
+    console.log(result)
+    return result;
 }
 
 function firstLetterCaps(textStr) {
