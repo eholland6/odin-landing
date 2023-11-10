@@ -7,6 +7,21 @@ function game(num_rounds) {
 }
 */
 
+const rockBtn = document.querySelector('#rockBtn');
+rockBtn.addEventListener('click', function() {
+    playRound('Rock');
+});
+
+const paperBtn = document.querySelector('#paperBtn');
+rockBtn.addEventListener('click', function() {
+    playRound('Paper');
+});
+
+const scissorsBtn = document.querySelector('#scissorsBtn');
+rockBtn.addEventListener('click', function() {
+    playRound('Scissors');
+});
+
 function playRound(playerChoice) {
     playerChoice = firstLetterCaps(playerChoice);
     computerChoice = getComputerChoice();
