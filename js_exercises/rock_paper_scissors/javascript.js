@@ -1,9 +1,11 @@
+/*
 function game(num_rounds) {
     for (let i = 0; i < num_rounds; i++) {
         let playerChoice = prompt('Please select Rock, Scissors, or Paper:')
         playRound(playerChoice)
     }
 }
+*/
 
 function playRound(playerChoice) {
     playerChoice = firstLetterCaps(playerChoice);
