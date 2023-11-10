@@ -13,14 +13,20 @@ rockBtn.addEventListener('click', function() {
 });
 
 const paperBtn = document.querySelector('#paperBtn');
-rockBtn.addEventListener('click', function() {
+paperBtn.addEventListener('click', function() {
     playRound('Paper');
 });
 
 const scissorsBtn = document.querySelector('#scissorsBtn');
-rockBtn.addEventListener('click', function() {
-    playRound('Scissors');
+scissorsBtn.addEventListener('click', function() {
+    msg = playRound('Scissors');
+    updateMatch(msg);
 });
+
+function updateMatch(msg) {
+    const arena = document.querySelector('#arena');
+    arena.textContent = msg;
+}
 
 function playRound(playerChoice) {
     playerChoice = firstLetterCaps(playerChoice);
@@ -53,7 +59,7 @@ function playRound(playerChoice) {
             result = "You win! Your scissors cut up the computer's paper";
         }
     }
-
+    console.log(result)
     return result;
 }
 
