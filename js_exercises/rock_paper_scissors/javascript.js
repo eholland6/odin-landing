@@ -21,6 +21,7 @@ rockBtn.addEventListener('click', function() {
     msg = result[0];
     scoreArray = result[1];
     updateMatch(msg, scoreArray);
+    checkMatchEnd();
 });
 
 const paperBtn = document.querySelector('#paperBtn');
@@ -29,6 +30,7 @@ paperBtn.addEventListener('click', function() {
     msg = result[0];
     scoreArray = result[1];
     updateMatch(msg, scoreArray);
+    checkMatchEnd();
 });
 
 const scissorsBtn = document.querySelector('#scissorsBtn');
@@ -37,6 +39,7 @@ scissorsBtn.addEventListener('click', function() {
     msg = result[0];
     scoreArray = result[1];
     updateMatch(msg, scoreArray);
+    checkMatchEnd();
 });
 
 function updateMatch(msg, scoreArray) {
@@ -47,6 +50,15 @@ function updateMatch(msg, scoreArray) {
     draws = draws + scoreArray[2];
     score = `Player Wins: ${playerWins}  -  CPU Wins: ${cpuWins}  -  Draws: ${draws}`;
     scoreboard.textContent = score;
+}
+
+function checkMatchEnd() {
+    if (playerWins >= 5) {
+        alert('The human defeats the machine!! You outsmarted the random number machine');
+    }
+    else if (cpuWins >= 5) {
+        alert('The computer wins!! All hail the machine overlords');
+    }
 }
 
 function playRound(playerChoice) {
