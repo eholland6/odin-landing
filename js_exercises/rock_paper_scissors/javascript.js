@@ -7,25 +7,46 @@ function game(num_rounds) {
 }
 */
 
+let playerWins = 0;
+let cpuWins = 0;
+let draws = 0;
+
+const scoreboard = document.querySelector('#scoreboard');
+score = `Player Wins: ${playerWins}  -  CPU Wins: ${cpuWins}  -  Draws: ${draws}`
+scoreboard.textContent = score;
+
 const rockBtn = document.querySelector('#rockBtn');
 rockBtn.addEventListener('click', function() {
-    playRound('Rock');
+    result = playRound('Rock');
+    msg = result[0];
+    scoreArray = result[1];
+    updateMatch(msg, scoreArray);
 });
 
 const paperBtn = document.querySelector('#paperBtn');
 paperBtn.addEventListener('click', function() {
-    playRound('Paper');
+    result = playRound('Paper');
+    msg = result[0];
+    scoreArray = result[1];
+    updateMatch(msg, scoreArray);
 });
 
 const scissorsBtn = document.querySelector('#scissorsBtn');
 scissorsBtn.addEventListener('click', function() {
-    msg = playRound('Scissors');
-    updateMatch(msg);
+    result = playRound('Scissors');
+    msg = result[0];
+    scoreArray = result[1];
+    updateMatch(msg, scoreArray);
 });
 
-function updateMatch(msg) {
-    const arena = document.querySelector('#arena');
-    arena.textContent = msg;
+function updateMatch(msg, scoreArray) {
+    const update = document.querySelector('#update')
+    update.textContent = msg;
+    playerWins = playerWins + scoreArray[0];
+    cpuWins = cpuWins + scoreArray[1];
+    draws = draws + scoreArray[2];
+    score = `Player Wins: ${playerWins}  -  CPU Wins: ${cpuWins}  -  Draws: ${draws}`;
+    scoreboard.textContent = score;
 }
 
 function playRound(playerChoice) {
@@ -33,34 +54,43 @@ function playRound(playerChoice) {
     computerChoice = getComputerChoice();
 
     if (playerChoice == computerChoice) {
-        result = `Tie! You both chose ${playerChoice}. So unsatisfying!`;
+        resultMsg = `Tie! You both chose ${playerChoice}. So unsatisfying!`;
+        resultArray = [0, 0, 1];
     }
     else if (playerChoice == 'Rock') {
         if (computerChoice == 'Paper') {
-            result = 'You lose! Paper covers Rock!';
+            resultMsg = 'You lose! Paper covers Rock!';
+            resultArray = [0, 1, 0];
         }
         else {
-            result = `You win! Rock smashes Scissors!`;
+            resultMsg = `You win! Rock smashes Scissors!`;
+            resultArray = [1, 0, 0];
         }
     }
     else if (playerChoice == 'Paper') {
         if (computerChoice == 'Scissors') {
-            result = 'You Lose! Scissors cuts that paper all up!';
+            resultMsg = 'You Lose! Scissors cuts that paper all up!';
+            resultArray = [0, 1, 0];
         }
         else {
-            result = 'You Win! Paper covers that Rock right up!';
+            resultMsg = 'You Win! Paper covers that Rock right up!';
+            resultArray = [1, 0, 0];
         }
     }
     else if (playerChoice == 'Scissors') {
         if (computerChoice == 'Rock') {
-            result = 'You Lose! Rock smashes your scissors big time!';
+            resultMsg = 'You Lose! Rock smashes your scissors big time!';
+            resultArray = [0, 1, 0];
         }
         else {
-            result = "You win! Your scissors cut up the computer's paper";
+            resultMsg = "You win! Your scissors cut up the computer's paper";
+            resultArray = [1, 0, 0];
         }
     }
-    console.log(result)
-    return result;
+
+    let retArray = [resultMsg, resultArray]
+
+    return retArray;
 }
 
 function getComputerChoice() {
