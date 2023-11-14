@@ -10,6 +10,11 @@ gridBtn.addEventListener('click', function() {
 function gridCreator(x, y) {
     numCells = x * y;
     const mainContainer = document.querySelector('#main-container');
+    gridColumns = ''
+    for (i=0; i<x; i++) {
+        gridColumns = gridColumns.concat('auto ')
+    }
+    mainContainer.style['grid-template-columns'] = gridColumns;
     for (i=0; i<numCells; i++) {
         const div = document.createElement('div');
         div.textContent = 'I am a div boi!';
